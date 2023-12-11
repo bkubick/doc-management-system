@@ -5,6 +5,9 @@ A project dedicated to building out a document management system using REACT and
 
 **NOTE** This repository is just beginning, and is in continuous development.
 
+**NOTE** Here is the course repository that this repo grabs from and follows throughout the course. I have separate directories for each segment of the course, and once I finish the course, I will make my own directory that I will build off of earlier work to make my own customized app to continue building my skill set.
+* https://github.com/davidtucker/ps-serverless-app
+
 ## Tech Stack
 <img style="padding-right:20px;" align=left alt="React" src="https://img.shields.io/badge/react-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB"/>
 <img style="padding-right:20px;" align=left alt="TypeScript" src="https://img.shields.io/badge/typescript-%23007ACC.svg?style=for-the-badge&logo=typescript&logoColor=white"/>
