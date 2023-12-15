@@ -1,5 +1,6 @@
 import * as cdk from '@aws-cdk/core';
 
+import { AppDatabase } from './database';
 import { AssetStorage } from './storage';
 import { WebApp } from './webapp';
 
@@ -17,6 +18,12 @@ export class ApplicationStack extends cdk.Stack {
       hostingBucket: storage.hostingBucket,
       relativeWebAppPath: 'webapp',
       baseDirectory: '../',
+    });
+
+    new AppDatabase(this, 'Database');
+
+    new cdk.CfnOutput(this, 'DatabaseCreation', {
+      value: 'Database created successfully'
     });
   }
 }
