@@ -23,11 +23,11 @@ function createDocumentsTable(construct: cdk.Construct): dynamodb.Table {
     documentsTable.addGlobalSecondaryIndex({
         indexName: 'GSI1',
         partitionKey: {
-            name: 'PK',
+            name: 'SK',
             type: dynamodb.AttributeType.STRING
         },
         sortKey: {
-            name: 'SK',
+            name: 'PK',
             type: dynamodb.AttributeType.STRING
         },
         projectionType: dynamodb.ProjectionType.INCLUDE,
