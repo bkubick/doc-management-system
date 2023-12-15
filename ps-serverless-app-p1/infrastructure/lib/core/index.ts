@@ -1,6 +1,7 @@
 import * as cdk from '@aws-cdk/core';
 
 import { AppDatabase } from './database';
+import { Services } from './services';
 import { AssetStorage } from './storage';
 import { WebApp } from './webapp';
 
@@ -14,16 +15,28 @@ export class ApplicationStack extends cdk.Stack {
       value: 'AssetStorage created successfully'
     });
 
+    const appDatabase = new AppDatabase(this, 'Database');
+
+    new cdk.CfnOutput(this, 'DatabaseCreation', {
+      value: 'Database created successfully'
+    });
+
+    new Services(this, 'Services', {
+      documentsTable: appDatabase.documentsTable,
+    });
+
+    new cdk.CfnOutput(this, 'ServicesCreation', {
+      value: 'Services created successfully'
+    });
+
     new WebApp(this, 'WebApp', {
       hostingBucket: storage.hostingBucket,
       relativeWebAppPath: 'webapp',
       baseDirectory: '../',
     });
 
-    new AppDatabase(this, 'Database');
-
-    new cdk.CfnOutput(this, 'DatabaseCreation', {
-      value: 'Database created successfully'
+    new cdk.CfnOutput(this, 'WebAppCreation', {
+      value: 'WebApp created successfully'
     });
   }
 }
